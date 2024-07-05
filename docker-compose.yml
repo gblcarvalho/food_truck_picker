@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: db-postgres-ftpicker
+    image: postgres:16.0-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=food_truck_picker_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./.postgres:/var/lib/postgresql/data
