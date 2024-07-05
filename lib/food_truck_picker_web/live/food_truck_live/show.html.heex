@@ -1,0 +1,31 @@
+<.header>
+  Food truck <%= @food_truck.id %>
+  <:subtitle>This is a food_truck record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/food_trucks/#{@food_truck}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit food_truck</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @food_truck.name %></:item>
+  <:item title="Address"><%= @food_truck.address %></:item>
+  <:item title="Location description"><%= @food_truck.location_description %></:item>
+  <:item title="Items"><%= @food_truck.items %></:item>
+  <:item title="Latitude"><%= @food_truck.latitude %></:item>
+  <:item title="Longitude"><%= @food_truck.longitude %></:item>
+</.list>
+
+<.back navigate={~p"/food_trucks"}>Back to food_trucks</.back>
+
+<.modal :if={@live_action == :edit} id="food_truck-modal" show on_cancel={JS.patch(~p"/food_trucks/#{@food_truck}")}>
+  <.live_component
+    module={FoodTruckPickerWeb.FoodTruckLive.FormComponent}
+    id={@food_truck.id}
+    title={@page_title}
+    action={@live_action}
+    food_truck={@food_truck}
+    patch={~p"/food_trucks/#{@food_truck}"}
+  />
+</.modal>
