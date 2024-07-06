@@ -1,18 +1,33 @@
 # FoodTruckPicker
+FoodTruckPicker is a web application built using Elixir, Phoenix, and LiveView. It generates a web page accessible at 0.0.0.0:4000 where users can receive food truck recommendations with a simple click of a button.
 
-To start your Phoenix server:
+## Getting Started
+To get the project up and running, follow these steps:
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+1. **Clone the repository:**
+```bash
+git clone <repository-url>
+cd food_truck_picker
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+2. **Start the application using Docker:**
+Ensure Docker is installed on your machine. Then, run the following command:
+```bash
+docker-compose up
+```
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+This command will build the necessary Docker containers and start the application.
 
-## Learn more
+3. **Access the application:**
+Once the Docker containers are running, open your web browser and go to: [`http://0.0.0.0:4000`](http://0.0.0.0:4000)
+You should see the main page of the FoodTruckPicker application.
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## Usage
+- Upon accessing [`http://0.0.0.0:4000`](http://0.0.0.0:4000), you will be greeted with a question: "Would you like a Food Truck Suggestion?".
+- Click the button labeled "Yes, I do!" to receive a recommendation for a different food truck each time you click.
+
+## Development
+**Dependencies**
+- Elixir
+- Phoenix Framework
+- Docker
