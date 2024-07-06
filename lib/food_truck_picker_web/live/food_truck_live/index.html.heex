@@ -5,13 +5,40 @@
   </:actions>
 </.header>
 
-<ul :if={@food_truck}>
-  <li>Name: <%= @food_truck.name %></li>
-  <li>Address: <%= @food_truck.address %></li>
-  <li>Location: <%= @food_truck.location_description %></li>
-  <ul>
-    <%= for item <- @food_truck.items do %>
-    <li><%= item %></li>
-    <% end %>
-  </ul>
-</ul>
+<div :if={@food_truck}>
+  <div class="px-4 sm:px-0">
+    <h3 class="text-base font-semibold leading-7 text-gray-900">Food Truck Informations</h3>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Name</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @food_truck.name %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Address</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @food_truck.address %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Location</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @food_truck.location_description %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Items</dt>
+        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
+            <%= for item <- @food_truck.items do %>
+            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+              <div class="flex w-0 flex-1 items-center">
+                <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                  <span class="truncate font-medium"><%= item %></span>
+                </div>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
