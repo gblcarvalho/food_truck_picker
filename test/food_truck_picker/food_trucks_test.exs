@@ -20,6 +20,14 @@ defmodule FoodTruckPicker.FoodTrucksTest do
       assert FoodTrucks.get_food_truck!(food_truck.id) == food_truck
     end
 
+    test "get_random_food_truck/0 returns a random food_truck" do
+      food_truck_1 = food_truck_fixture()
+      food_truck_2 = food_truck_fixture()
+      food_truck_3 = food_truck_fixture()
+      random_food_truck = FoodTrucks.get_random_food_truck()
+      assert Enum.member?([food_truck_1.id, food_truck_2.id, food_truck_3.id], random_food_truck.id)
+    end
+
     test "create_food_truck/1 with valid data creates a food_truck" do
       valid_attrs = %{name: "some name", address: "some address", items: ["option1", "option2"], location_description: "some location_description", latitude: 120.5, longitude: 120.5}
 
