@@ -38,6 +38,9 @@ defmodule FoodTruckPicker.FoodTrucks do
   def get_food_truck!(id), do: Repo.get!(FoodTruck, id)
 
 
+  @doc """
+  Gets a single random food_truck.
+  """
   def get_random_food_truck() do
     query =
       from FoodTruck,
